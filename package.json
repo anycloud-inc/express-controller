@@ -1,5 +1,5 @@
 {
-  "name": "@anycloud/express-rest-router",
+  "name": "@anycloud/express-controller",
   "version": "0.1.0",
   "publishConfig": {
     "access": "public"
@@ -7,9 +7,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/anycloud-inc/express-rest-router"
+    "url": "https://github.com/anycloud-inc/express-controller"
   },
-  "homepage": "https://github.com/anycloud-inc/express-rest-router#readme",
+  "homepage": "https://github.com/anycloud-inc/express-controller#readme",
   "scripts": {
     "prepare": "tsc -p ."
   },

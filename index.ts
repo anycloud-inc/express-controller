@@ -8,30 +8,32 @@ interface RouteItem {
   action: string;
 }
 
-export class RestRouter {
-  constructor(
-    private router: express.Router,
-    private middlewares: express.Handler[]
-  ) {}
+export const registerControllers = (props: {
+  router: express.Router;
+  controllers: Array<new () => any>;
+  middlewares?: express.Handler[];
+}) => {
+  const { router, controllers, middlewares } = props;
+  controllers.forEach((controller) => {
+    registerController({ router, controller, middlewares });
+  });
+};
 
-  registerControllers(controllers: Array<new () => any>) {
-    controllers.forEach((controller) => {
-      this.registerController(controller);
-    });
-  }
-
-  registerController(controller: new () => any) {
-    const instance = new controller();
-    instance._routes.forEach((route: RouteItem) => {
-      const path = instance._basePath + route.path;
-      this.router[route.method](
-        path,
-        ...this.middlewares,
-        (instance as any)[route.action].bind(instance)
-      );
-    });
-  }
-}
+export const registerController = (props: {
+  router: express.Router;
+  controller: new () => any;
+  middlewares?: express.Handler[];
+}) => {
+  const instance = new props.controller();
+  instance._routes.forEach((route: RouteItem) => {
+    const path = instance._basePath + route.path;
+    props.router[route.method](
+      path,
+      ...props.middlewares,
+      (instance as any)[route.action].bind(instance)
+    );
+  });
+};
 
 export const Controller = (basePath: string) => {
   // return Class Decorator
