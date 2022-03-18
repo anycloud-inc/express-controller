@@ -46,8 +46,10 @@ import {
   Post,
 } from "@anycloud/express-controller";
 
+// Register a base path
 @Controller("/users")
 class UserController {
+  // Register a path for each endoint
   @Get("/")
   async index(_req: Request, res: Response, _next: NextFunction) {
     res.json({
@@ -55,6 +57,7 @@ class UserController {
     });
   }
 
+  // Parameters can be written in the same way as for express router
   @Get("/:id")
   async show(req: Request, res: Response, _next: NextFunction) {
     res.json({
