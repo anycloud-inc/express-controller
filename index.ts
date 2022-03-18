@@ -29,7 +29,7 @@ export const registerController = (props: {
     const path = instance._basePath + route.path;
     props.router[route.method](
       path,
-      ...props.middlewares,
+      ...(props.middlewares ?? []),
       (instance as any)[route.action].bind(instance)
     );
   });

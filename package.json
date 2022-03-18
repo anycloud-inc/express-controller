@@ -1,9 +1,10 @@
 {
   "name": "@anycloud/express-controller",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publishConfig": {
     "access": "public"
   },
+  "main": "dist/index.js",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -16,8 +17,6 @@
   "dependencies": {},
   "devDependencies": {
     "@types/express": "^4.17.13",
-    "@types/node": "^14.14.13",
-    "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
   }
 }

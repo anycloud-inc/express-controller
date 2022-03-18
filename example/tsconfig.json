@@ -3,11 +3,10 @@
     "target": "es2019",
     "module": "commonjs",
     "moduleResolution": "node",
-    "outDir": "dist",
+    "outDir": ".",
     "rootDir": ".",
     "baseUrl": ".",
     "strict": true,
-    "declaration": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "resolveJsonModule": true
@@ -16,6 +15,7 @@
     "node_modules"
   ],
   "include": [
-    "index.ts",
+    ".",
+    "*/**/*.json"
   ]
 }
